@@ -1,0 +1,285 @@
+html, body, div {
+    height: 100%;
+}
+.container {
+    max-width: none;
+}
+
+/* ~~ left navigation pane ~~ */
+.home-button {
+    height: 10%;
+}
+.logo-img {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+}
+.side-pane {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}  
+.left-pane {
+    background-color: antiquewhite;
+    height: 45%;
+    width: 100%;
+    margin: 0;
+}
+.action-area {
+    position: relative;
+}
+.action-pane {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    border-top: 0.4px dotted #e6e6e6;
+    border-bottom: 0.4px dotted #e6e6e6;
+}
+.action-pane.slides {
+    animation: slideRight 0.3s;
+}
+@keyframes slideRight {
+    from {left: -400px;}
+    to {left: 0;}
+}
+.exit-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: auto;
+    width: auto;
+    font-size: 1.5em;
+    padding-right: 5px;
+}
+.exit-button a {
+    color: #e6e6e6;
+}
+.exit-button a:hover {
+    color: #cccccc;
+}
+div.action-pane img {
+    display: block;
+    margin: 18% auto 5% auto;
+    position: relative;
+    width: 90%;
+    height: auto;
+}
+.menuButtonContainer {
+    position: relative;
+    width: 33.33%;
+    padding-top: 33.33%;
+    height: 10%;
+    float: left;
+}
+.menuButton {
+    border-radius: 50%;
+    margin-left: 2.5%;
+    width: 95%;
+    height: 95%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    font-size: 2.2em;
+    text-align: center;
+    padding-top: 24%;
+}
+.menuButton:active {
+    border-width: 2px;
+    border-style: solid; 
+}
+#chatButton {
+    top: -28%;
+    background: #009900;
+    color: #7CFC00;
+}
+#chatButton:hover {
+    background: #008000;
+}
+#vidButton {
+    background: #e91640;
+    color: #ff571a;
+}
+#vidButton:hover {
+    background: #dc143c;
+}
+#docButton {
+    top: -28%;
+    background: #e1b137;
+    color: #FFFF00;
+}
+#docButton:hover {
+    background: #daa520;
+}
+#vidChat {
+    border: none;
+    overflow: hidden;
+    text-align: center;
+}
+#vidChat img {
+    margin: 5% auto 0 auto;
+    position: relative;
+    left: -25%;
+    width: 150%;
+    height: auto;
+    
+}
+#vidChat .overlay {
+    background: rgba(255,255,255,0.5);
+    text-align: center;
+    padding-top: 30%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#vidChat p {
+    font-weight: bold;
+    font-size: 1.5em;
+    background: rgba(255,255,255,0.5);
+}
+#endVidContainer {
+    top: 34.2%;
+    left: 33.33%;
+}
+.heads-pane {
+    background-color: lightblue;
+    padding-top: 2px;
+}
+.heads {
+    font-size: 0.8em;
+    font-weight: bold;
+    height: 25%;
+    width: 50%;
+    text-align: center;
+    margin: 0;
+    float: left;
+    position: relative;
+}
+
+/* Tooltip text from https://www.w3schools.com/css/css_tooltip.asp */
+.heads .tooltiptext {
+    visibility: hidden;
+    width: 80px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+ 
+    /* Position the tooltip text */
+    position: absolute;
+    width: 80px;
+    top: 63%;
+    left: 50%; 
+    margin-left: -40px;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the div */
+div.heads:hover .tooltiptext {
+    visibility: visible;
+}
+
+div.heads img {
+    display: block;
+    margin: auto auto;
+    position: relative;
+    height: 95%;
+    width: auto;
+    border-radius: 50%;
+    border: 3px solid black;
+}
+div.heads img:active {
+    border-width: 0;
+}
+.tooltiptext:active + img {
+    border-width: 0;
+}
+.docAlert {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 8%;
+    width: 17%;
+    height: 20%;
+    text-align: center;
+    font-size: 0.8em;
+    padding-top: 4px;
+    background: #e1b137;
+    right: 17%;
+    color:#FFFF00;
+}
+.chatAlert {
+    border-radius: 50%;
+    position: absolute;
+    bottom: 8%;
+    width: 17%;
+    height: 20%;
+    text-align: center;
+    font-size: 0.8em;
+    padding-top: 4px;
+    background: #009900;
+    left: 17%;
+    color: #7CFC00;
+}
+
+/* ~~ right classroom chat pane ~~ */
+.system-button {
+    height: 10%;
+    width: 50%;
+    float: left;
+    text-align: center;
+    color: #e6e6e6;
+    border-bottom: 0.4px dotted #e6e6e6;
+    padding-top: 5%;
+}
+.system-button:hover {
+    background: #4e5965;
+}
+.system-button span {
+    font-size: 2em;
+}
+.system-button #sign-out {
+    border-left: 0.4px dotted #e6e6e6;
+}
+.chat-feed {
+    height: 80%;
+    padding: 15px 15px 0px 15px;
+    font-size: 0.8em;
+    float: left;
+}
+.chat-heading{
+    height: 5%;
+}
+.right-pane {
+    overflow-y: scroll;
+    height: 95%;
+}
+div.right-pane * {
+    margin-bottom: 0;
+}
+div.right-pane p {
+    padding: 5px;
+}
+.tutor {
+    color: lightblue;
+    font-style: italic;
+}
+.student {
+    color: antiquewhite;
+    font-style: italic;
+}
+.timestamp {
+    color: antiquewhite;
+    text-align: center;
+    font-weight: bold; 
+}
+.chat-box {
+    float: left;
+    height: 10%;
+    padding: 0px 15px 15px 15px;
+    margin-bottom: 0 !important;
+}
