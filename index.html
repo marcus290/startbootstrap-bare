@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>COMPSCI 345 Assignment 3 - Collaborative Problem-based Learning Environment</title>
+    <title>Assignment 3 - Collaborative Problem-based Learning Environment</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -23,65 +23,76 @@
   </head>
 
   <body>
-
-
       <div class="container">
         <div class="row">
     <!-- Navigation -->
-            <nav class="navbar side-pane navbar-dark bg-dark col-2">
+            <nav class="navbar side-pane navbar-dark col-2">
               <div class="home-button"> 
                 <a href="#">
                   <img src="img/Rutherford3_03.png" alt="Rutherford College" class="logo-img">
                 </a>
               </div>
-              <div class="left-pane action-area">My document history goes here.
-                <div class="left-pane action-pane bg-dark invisible" id="PersonMenu">
-                  <img src="img/group/PersonX.jpg" class="rounded-circle" alt="Profile">
+              <div class="left-pane action-area"><h5>My submissions</h5>
+                <p>You have no submissions.</p>
+                <div class="action-pane invisible" id="PersonMenu">
+                  <img src="img/group/Person1.jpg" class="rounded-circle" alt="Profile">
                   <div class="exit-button"><a href="#" onclick="closePMenu()"><span class="far fa-times-circle"></span></a></div>
-                  <div class="menuButtonContainer"><a href="#" onclick="">
+                  <div class="menuButtonContainer"><a href="#" onclick="startPChat('Person1')">
                     <span class="fas fa-comment menuButton" id="chatButton"></span></a></div>
                   <div class="menuButtonContainer"><a href="#" onclick="startVid()">
                     <span class="fas fa-video menuButton" id="vidButton"></span></a></div>
                   <div class="menuButtonContainer"><a href="#" onclick="">
                     <span class="fas fa-file-alt menuButton" id="docButton"></span></a></div>
+                  <p></p>
                 
-                <div class="left-pane action-pane invisible">Group member's private chat</div>
-                <div class="left-pane action-pane bg-dark invisible" id="vidChat">
-                  <img src="img/group/PersonX.jpg" class="rounded-circle" alt="Profile">
-                  <div class="overlay"><p>Video chat in progress!</p>
+                <div class="action-pane invisible" id="privChat">
+                  <div><h5>Group member's private chat</h5></div>
+                  <div class="exit-button"><a href="#" onclick="closePChat()"><span class="far fa-times-circle"></span></a></div>
+                  <div id="priv-chat-feed">
+                    <div id="priv-chat-feed-inner"></div>
+                  </div>
+                  <div id="priv-chat-box">
+                    <textarea class="form-control" placeholder="Private message" rows="1"></textarea>
+                    <button class="btn btn-secondary" type="button">Send message</button>
+                  </div>
+                </div>
+                <div class="action-pane invisible" id="vidChat">
+                  <img src="img/group/Person1.jpg" class="rounded-circle" alt="Profile">
+                  <div class="overlay"><p>Video chat in progress</p>
                     <div class="exit-button"><a href="#" onclick="endVid()"><span class="far fa-times-circle"></span></a></div>
                     <div class="menuButtonContainer" id="endVidContainer"><a href="#" onclick="endVid()">
                     <span class="fas fa-video-slash menuButton" id="vidButton"></span></a></div></div></div>
-                <div class="left-pane action-pane invisible">Group member's document history</div>
+                <div class="action-pane invisible">Group member's document history</div>
                 </div>
               </div>
               <div class="left-pane heads-pane">
-                <div class="heads"><a href="#" onclick="changeMenu('Person0');endVid()"><span class="tooltiptext">
-                  Mr. Miyagi</span><img src="img/group/Person0.jpg" alt="Tutor"></a></div>
-                <div class="heads"><a href="#" onclick="changeMenu('Person1');endVid()"><span class="tooltiptext">
-                  Me</span><img src="img/group/Person1.jpg" alt="Student1"></a></div>
-                <div class="heads"><a href="#" onclick="changeMenu('Person2');endVid()"><span class="tooltiptext">
-                  Sam</span><img src="img/group/Person2.jpg" alt="Student2"></a>
+                <div class="heads" id="Person0"><a href="#" onclick="changeMenu('Person0')"><span class="tooltiptext">
+                  Me</span><img src="img/group/Person0.jpg" alt="Student1" class="online"></a></div>
+                <div class="heads" id="Person1"><a href="#" onclick="changeMenu('Person1')"><span class="tooltiptext">
+                  Mr. Miyagi</span><img src="img/group/Person1.jpg" alt="Tutor" class="online"></a>
+                  <span class="fas fa-comment chatAlert"></span></div>
+                <div class="heads" id="Person2"><a href="#" onclick="changeMenu('Person2')"><span class="tooltiptext">
+                  Sam</span><img src="img/group/Person2.jpg" alt="Student2" class="submitted new-submitted"></a>
+                  <span class="fas fa-file-alt docAlert"></span></div>
+                <div class="heads" id="Person3"><a href="#" onclick="changeMenu('Person3')"><span class="tooltiptext">
+                  Roger</span><img src="img/group/Person3.jpg" alt="Student3"></a></div>
+                <div class="heads" id="Person4"><a href="#" onclick="changeMenu('Person4')"><span class="tooltiptext">
+                  Aditi</span><img src="img/group/Person4.jpg" alt="Student4"></a>
+                  <span class="fas fa-comment chatAlert"></span></div>
+                <div class="heads" id="Person5"><a href="#" onclick="changeMenu('Person5')"><span class="tooltiptext">
+                  Alice</span><img src="img/group/Person5.jpg" alt="Student5" class="online submitted new-submitted"></a>
                   <span class="fas fa-comment chatAlert"></span>
                   <span class="fas fa-file-alt docAlert"></span></div>
-                <div class="heads"><a href="#" onclick="changeMenu('Person3');endVid()"><span class="tooltiptext">
-                  Roger</span><img src="img/group/Person3.jpg" alt="Student3"></a>
-                  <span class="fas fa-comment chatAlert"></span>
-                  <span class="fas fa-file-alt docAlert"></span></div>
-                <div class="heads"><a href="#" onclick="changeMenu('Person4');endVid()"><span class="tooltiptext">
-                  Aditi</span><img src="img/group/Person4.jpg" alt="Student4"></a></div>
-                <div class="heads"><a href="#" onclick="changeMenu('Person5');endVid()"><span class="tooltiptext">
-                  Bort</span><img src="img/group/Person5.jpg" alt="Student5"></a></div>
-                <div class="heads"><a href="#" onclick="changeMenu('Person6');endVid()"><span class="tooltiptext">
-                  Alice</span><img src="img/group/Person6.jpg" alt="Student6"></a></div>
-                <div class="heads"><a href="#" onclick="changeMenu('Person7');endVid()"><span class="tooltiptext">
+                <div class="heads" id="Person6"><a href="#" onclick="changeMenu('Person6')"><span class="tooltiptext">
+                  Bort</span><img src="img/group/Person6.jpg" alt="Student6" class="online"></a></div>
+                <div class="heads" id="Person7"><a href="#" onclick="changeMenu('Person7')"><span class="tooltiptext">
                   Stefan</span><img src="img/group/Person7.jpg" alt="Student7"></a></div>
               </div>
             </nav>
       
 
     <!-- Page Content -->
-          <div class="col-8 text-center">
+          <div class="col-8 text-center bg-white">
             <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
             <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
             <ul class="list-unstyled">
@@ -92,12 +103,13 @@
 
 
     <!-- Public Chat Feed -->
-          <div class="side-pane col-2 bg-dark">
+          <div class="side-pane col-2">
             <a href="#"><div class="system-button"><span class="fas fa-cog"></span><br>Settings</div></a>
             <a href="#"><div class="system-button"><span class="fas fa-user-times"></span><br>Sign out</div></a>
             <div class="chat-feed">
               <div class="chat-heading"><h4 class="text-light">Classroom Chat</h4></div>
-              <div class="right-pane border border-light rounded-top">
+              <div class="right-pane rounded-top">
+                <!-- Dummy input for chat feed -->
                 <p class="timestamp">14 May 2018, 16:03</p>
                 <p class="tutor"><strong>[Mr Miyagi:]</strong> Assignment 1 about tribalism is up! Please form your own answer then check your group's work!</p>
                 <p class="student"><strong>[Roger:]</strong> ok</p>
@@ -105,11 +117,9 @@
                 <p class="tutor"><strong>[Mr Miyagi:]</strong> Alice, you can use it but for any source, don't just copy information. If you research something, make sure your reword the meaning in your own words.</p>
               </div>
             </div>
-            <div class="input-group mb-3 chat-box">
-              <textarea class="form-control" placeholder="Chat" rows="2"></textarea>
-              <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button">Send</button>
-              </div>
+            <div class="chat-box">
+              <textarea class="form-control" placeholder="Public message" rows="2"></textarea>
+              <button class="btn btn-secondary" type="button">Send message</button>
             </div>
           </div>
       </div>
@@ -118,6 +128,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JavaScript -->
     <script src="vendor/script.js"></script>
 
   </body>

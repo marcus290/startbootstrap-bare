@@ -1,5 +1,6 @@
 html, body, div {
     height: 100%;
+    background-color: #33334d;
 }
 .container {
     max-width: none;
@@ -20,21 +21,23 @@ html, body, div {
     padding: 0;
 }  
 .left-pane {
-    background-color: antiquewhite;
     height: 45%;
     width: 100%;
     margin: 0;
+    border-top: 0.4px dotted #e6e6e6;
 }
 .action-area {
     position: relative;
+}
+.action-area p {
+    color: #e6e6e6;
+    text-align: center;
 }
 .action-pane {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
-    border-top: 0.4px dotted #e6e6e6;
-    border-bottom: 0.4px dotted #e6e6e6;
 }
 .action-pane.slides {
     animation: slideRight 0.3s;
@@ -51,6 +54,7 @@ html, body, div {
     width: auto;
     font-size: 1.5em;
     padding-right: 5px;
+    background-color: transparent;
 }
 .exit-button a {
     color: #e6e6e6;
@@ -60,7 +64,7 @@ html, body, div {
 }
 div.action-pane img {
     display: block;
-    margin: 18% auto 5% auto;
+    margin: 10% auto 5% auto;
     position: relative;
     width: 90%;
     height: auto;
@@ -71,6 +75,7 @@ div.action-pane img {
     padding-top: 33.33%;
     height: 10%;
     float: left;
+    background-color: transparent;
 }
 .menuButton {
     border-radius: 50%;
@@ -85,10 +90,11 @@ div.action-pane img {
     font-size: 2.2em;
     text-align: center;
     padding-top: 24%;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.5);
+    transition: 0.1s;
 }
 .menuButton:active {
-    border-width: 2px;
-    border-style: solid; 
+    box-shadow: none;
 }
 #chatButton {
     top: -28%;
@@ -113,6 +119,55 @@ div.action-pane img {
 #docButton:hover {
     background: #daa520;
 }
+.menuButton.greyed-out {
+    background: grey!important;
+    color: dimgrey!important;
+    pointer-events: none;
+    cursor: default;
+    box-shadow: none;
+}
+#privChat {
+    border: none;
+    text-align: center;
+}
+h5 {
+    color: #e6e6e6;
+    padding-top: 5%;
+    text-align: center;
+}
+#privChat > div:first-child{
+    height: 10%;
+}
+#priv-chat-feed {
+    height: 70%;
+    width: 100%;
+    padding: 5px 15px 0px 15px;
+    font-size: 0.8em;
+    float: left;
+}
+#priv-chat-feed-inner {
+    width: 100%;
+    height: 100%;
+    border: 0.4px dotted #e6e6e6;
+    overflow-y: scroll;
+}
+#priv-chat-box {
+    float: left;
+    height: 20%;
+    width: 100%;
+    padding: 0px 15px 15px 15px;
+    margin-bottom: 0 !important;
+    text-align: right;
+}
+#priv-chat-box textarea {
+    width: 100%;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    font-size: 0.8em;
+}
+#priv-chat-box button {
+    font-size: 0.8em;
+}
 #vidChat {
     border: none;
     overflow: hidden;
@@ -124,7 +179,6 @@ div.action-pane img {
     left: -25%;
     width: 150%;
     height: auto;
-    
 }
 #vidChat .overlay {
     background: rgba(255,255,255,0.5);
@@ -139,14 +193,15 @@ div.action-pane img {
 #vidChat p {
     font-weight: bold;
     font-size: 1.5em;
+    font-style: italic;
+    color: black;
     background: rgba(255,255,255,0.5);
 }
 #endVidContainer {
-    top: 34.2%;
+    top: 28.5%;
     left: 33.33%;
 }
 .heads-pane {
-    background-color: lightblue;
     padding-top: 2px;
 }
 .heads {
@@ -158,14 +213,17 @@ div.action-pane img {
     margin: 0;
     float: left;
     position: relative;
+    background-color: transparent;
 }
 
 /* Tooltip text from https://www.w3schools.com/css/css_tooltip.asp */
 .heads .tooltiptext {
     visibility: hidden;
     width: 80px;
-    background-color: black;
-    color: #fff;
+    line-height: 13px;
+    background-color: #fff;
+    color: black;
+    opacity: 0.8;
     text-align: center;
     padding: 5px 0;
     border-radius: 6px;
@@ -173,7 +231,7 @@ div.action-pane img {
     /* Position the tooltip text */
     position: absolute;
     width: 80px;
-    top: 63%;
+    top: 70%;
     left: 50%; 
     margin-left: -40px;
     z-index: 1;
@@ -191,13 +249,25 @@ div.heads img {
     height: 95%;
     width: auto;
     border-radius: 50%;
-    border: 3px solid black;
+    border: 3px solid #343a40;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.5);
+    transition: 0.2s;
 }
-div.heads img:active {
-    border-width: 0;
+div.heads img:hover, .tooltiptext:hover + img {
+    border-color: black;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
 }
-.tooltiptext:active + img {
+div.heads img.online {
+    border-color: #009900;
+    /*box-shadow: 0 4px 8px 0 rgba(255,255,255,0.5);*/
+}
+div.heads img.online:hover, .tooltiptext:hover + img.online {
+    border-color: #008000;
+    /*box-shadow: 0 6px 10px 0 rgba(255,255,255,0.5);*/
+}
+div.heads img:active, .tooltiptext:active + img, div.heads img.online:active, .tooltiptext:active + img.online  {
     border-width: 0;
+    box-shadow: none;
 }
 .docAlert {
     border-radius: 50%;
@@ -242,11 +312,8 @@ div.heads img:active {
 .system-button span {
     font-size: 2em;
 }
-.system-button #sign-out {
-    border-left: 0.4px dotted #e6e6e6;
-}
 .chat-feed {
-    height: 80%;
+    height: 78%;
     padding: 15px 15px 0px 15px;
     font-size: 0.8em;
     float: left;
@@ -255,6 +322,7 @@ div.heads img:active {
     height: 5%;
 }
 .right-pane {
+    border: 0.4px dotted #e6e6e6;
     overflow-y: scroll;
     height: 95%;
 }
@@ -279,7 +347,19 @@ div.right-pane p {
 }
 .chat-box {
     float: left;
-    height: 10%;
+    height: 12%;
+    width: 100%;
     padding: 0px 15px 15px 15px;
     margin-bottom: 0 !important;
+    text-align: right;
 }
+.chat-box textarea {
+    width: 100%;
+    border-top-left-radius: 0%;
+    border-top-right-radius: 0%;
+    font-size: 0.8em;
+}
+.chat-box button {
+    font-size: 0.8em;
+}
+
