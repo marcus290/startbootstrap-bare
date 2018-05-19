@@ -32,8 +32,8 @@
                   <img src="img/Rutherford3_03.png" alt="Rutherford College" class="logo-img">
                 </a>
               </div>
-              <div class="left-pane action-area"><h5>My submissions</h5>
-                <p>You have no submissions.</p>
+              <div class="left-pane action-area"><h5>My posts</h5>
+                <p>You have no solutions posted.</p>
                 <div class="action-pane invisible" id="PersonMenu">
                   <img src="img/group/Person1.jpg" class="rounded-circle" alt="Profile">
                   <div class="exit-button"><a href="#" onclick="closePMenu()"><span class="far fa-times-circle"></span></a></div>
@@ -41,9 +41,9 @@
                     <span class="fas fa-comment menuButton" id="chatButton"></span></a></div>
                   <div class="menuButtonContainer"><a href="#" onclick="startVid()">
                     <span class="fas fa-video menuButton" id="vidButton"></span></a></div>
-                  <div class="menuButtonContainer"><a href="#" onclick="">
+                  <div class="menuButtonContainer"><a href="#" onclick="openDocPane('Person1')">
                     <span class="fas fa-file-alt menuButton" id="docButton"></span></a></div>
-                  <p></p>
+                  <p class="online-message"></p>
                 
                 <div class="action-pane invisible" id="privChat">
                   <div><h5>Group member's private chat</h5></div>
@@ -62,7 +62,10 @@
                     <div class="exit-button"><a href="#" onclick="endVid()"><span class="far fa-times-circle"></span></a></div>
                     <div class="menuButtonContainer" id="endVidContainer"><a href="#" onclick="endVid()">
                     <span class="fas fa-video-slash menuButton" id="vidButton"></span></a></div></div></div>
-                <div class="action-pane invisible">Group member's document history</div>
+                
+                <div class="action-pane invisible" id="docPane">Group member's document history
+                  <div class="exit-button"><a href="#" onclick="closeDocPane()"><span class="far fa-times-circle"></span></a></div>
+                </div>
                 </div>
               </div>
               <div class="left-pane heads-pane">
@@ -93,12 +96,96 @@
 
     <!-- Page Content -->
           <div class="col-8 text-center bg-white">
-            <h1 class="mt-5">A Bootstrap 4 Starter Template</h1>
-            <p class="lead">Complete with pre-defined file paths and responsive navigation!</p>
-            <ul class="list-unstyled">
-              <li>Bootstrap 4.1.1</li>
-              <li>jQuery 3.3.1</li>
-            </ul>
+            <h1 class="mt-5">Assignment 1 - Surrealism</h1>
+            <div id="problem-set-img-area">
+              <div class="problem-tiled-container">
+                <div class="problem-set-img-tiled" id="Dali0"><a href="#" onclick="enlargeImage(1)"><img src="img/a1/Dali0.jpg"></a><p class="img-title">The Persistence of Memory, 1931<br>by Salvador Dali</p></div>
+                <div class="problem-set-img-tiled" id="Dali1"><a href="#" onclick="enlargeImage(2)"><img src="img/a1/Dali1.jpg"></a><p class="img-title">Le Sommeil (Sleep), 1937<br>by Salvador Dali</p></div>
+                <div class="problem-set-img-tiled" id="Dali2"><a href="#" onclick="enlargeImage(3)"><img src="img/a1/Dali2.jpg"></a><p class="img-title">Lobster Telephone, 1938<br>by Salvador Dali</p></div>
+              </div>
+              <div class="problem-set-img-enlarged">
+                <div class="img-pane-container">
+                <div class="exit-button"><a href="#" onclick="closeImgEnlarge()"><span class="far fa-times-circle"></span></a></div>
+                <div class="cyclebutton leftbutton"><a href="#" onclick="plusDivs(-1)"><span class="fas fa-caret-left"></span></a></div>
+                <div class="img-container"><div class="img-wrapper">
+                  <img src="img/a1/Dali0.jpg" class="mySlides" title="The Persistence of Memory, 1931 by Salvador Dali">
+                  <img src="img/a1/Dali1.jpg" class="mySlides" title="Le Sommeil (Sleep), 1937 by Salvador Dali">
+                  <img src="img/a1/Dali2.jpg" class="mySlides" title="Lobster Telephone, 1938 by Salvador Dali">
+                </div></div>
+                <div class="cyclebutton rightbutton"><a href="#" onclick="plusDivs(1)"><span class="fas fa-caret-right"></span></a></div>
+                </div>
+                <p class="img-title">The Persistence of Memory, 1931 by Salvador Dali</p>
+              </div>
+            </div>
+            <p class="problem">Salvador Dali once said, <strong>“Surrealism is destructive, but it destroys only what it considers to be shackles limiting our vision.”</strong> What do you think Dali meant by surrealism being “destructive”? Refer to the art works here and discuss how they are destructive. You can also refer to other surrealist art works by Dali, other artists, or other art works of different genres.</p>
+            <p>(Word limit: 500 words)</p>
+            <button class="btn btn-secondary main-edit" type="button" onclick="displaySam()">Edit my latest draft</button>
+            <!-- SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp -->
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                  <div class="condensed-problem">
+                    <div class="img-pane-container">
+                        <div class="cyclebutton leftbutton"><a href="#" onclick="plusDivs(-1)"><span class="fas fa-caret-left"></span></a></div>
+                        <div class="img-container"><div class="img-wrapper">
+                          <img src="img/a1/Dali0.jpg" class="mySlides" title="The Persistence of Memory, 1931 by Salvador Dali">
+                          <img src="img/a1/Dali1.jpg" class="mySlides" title="Le Sommeil (Sleep), 1937 by Salvador Dali">
+                          <img src="img/a1/Dali2.jpg" class="mySlides" title="Lobster Telephone, 1938 by Salvador Dali">
+                        </div></div>
+                        <div class="cyclebutton rightbutton"><a href="#" onclick="plusDivs(1)"><span class="fas fa-caret-right"></span></a></div>
+                        <p class="img-title">The Persistence of Memory, 1931 by Salvador Dali</p>
+                    </div>
+                    <p>Salvador Dali once said, <strong>“Surrealism is destructive, but it destroys only what it considers to be shackles limiting our vision.”</strong> What do you think Dali meant by surrealism being “destructive”? Refer to the art works here and discuss how they are destructive. You can also refer to other surrealist art works by Dali, other artists, or other art works of different genres. (Word limit: 400 words)</p>
+                  </div>
+                  <div class="exit-button"><a href="#" onclick="closeEdit()"><span class="far fa-times-circle"></span></a></div>
+                  <div class="edit-area">
+                    <div class="text-editor">
+                      <img src="img/text-editor.png">
+                      <textarea class="form-control" rows="17"></textarea>
+                    </div>
+                    
+                  </div>
+                  <div class="edit-button-area">
+                      <button class="btn btn-secondary modal-edit" type="button" onclick="closeEdit()" id="post">Save &amp; post</button>
+                      <button class="btn btn-secondary modal-edit" type="button" onclick="closeEdit()">Save &amp; close</button>
+                      <button class="btn btn-secondary modal-edit" type="button" onclick="closeEdit()">Close</button>
+                  </div>
+                </div>
+              
+            </div>
+            <div id="connie-modal" class="modal">
+                <div class="modal-content">
+                  <div class="exit-button"><a href="#" onclick="closeConnie()"><span class="far fa-times-circle"></span></a></div>
+                  <div class="post-wrapper">
+                    <h2>Destructive Surrealism</h2>
+                    <h4>by Connie Li</h4>
+                    <p>In the context of traditional art, surrealism is destructive because it goes against the traditional ideas of realism. The two paintings below shows the contrast.</p>
+                    <div><img src="img/a1/Dali0.jpg"><img src="img/Jules_Breton.jpg"></div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi leo, rhoncus aliquam porttitor ut, finibus id purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis a ligula vel sapien dignissim fermentum. Curabitur sit amet odio condimentum, blandit sem non, cursus odio. Phasellus pharetra convallis diam, ultrices vulputate tortor. Sed posuere libero sit amet fringilla fringilla.</p>
+                    <div class="floated"><img src="img/a1/Dali1.jpg"></div>
+                    <p>Praesent porttitor eu est vitae lacinia. Donec posuere, urna ut convallis pretium, dolor arcu imperdiet augue, at eleifend sapien lectus ut ex. Suspendisse diam ipsum, dictum in ultricies vitae, molestie quis augue. Ut et enim ut metus tempor scelerisque at ac diam. Pellentesque varius felis urna, ut commodo urna hendrerit a. Sed eleifend convallis interdum. Aenean tincidunt eu lacus eu lacinia. In a dui ut risus pulvinar efficitur.</p>
+                  </div>
+                  <div class="feedback-wrapper"></div>
+                </div>
+            </div>
+            <div id="sam-modal" class="modal">
+              <div class="modal-content">
+                <div class="exit-button"><a href="#" onclick="closeSam()"><span class="far fa-times-circle"></span></a></div>
+                <div class="post-wrapper">
+                  <h2>Surreal Thought and Vision</h2>
+                  <h4>by Sam Fletcher-Walker</h4>
+                  <div class="floated"><img src="img/a1/Dali0.jpg"></div>
+                  <p>Surrealism is the exploration of the unconscious mind, often resulting in dreamlike images and ideas. In this way, it can be thought of as destructive because it breaks down the boundaries of what we typically see and think in the real world. For example, consider "The Persistence of Time" by Salvador Dali, where the main subjects of the scene are warped, melting clocks. This goes against our notion of a typical landscape and even our normal understanding of time.</p>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nisi leo, rhoncus aliquam porttitor ut, finibus id purus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis a ligula vel sapien dignissim fermentum. Curabitur sit amet odio condimentum, blandit sem non, cursus odio. Phasellus pharetra convallis diam, ultrices vulputate tortor. Sed posuere libero sit amet fringilla fringilla.</p>
+                  <div class="floated-left"><img src="img/a1/Dali1.jpg"></div>
+                  <p>Praesent porttitor eu est vitae lacinia. Donec posuere, urna ut convallis pretium, dolor arcu imperdiet augue, at eleifend sapien lectus ut ex. Suspendisse diam ipsum, dictum in ultricies vitae, molestie quis augue. Ut et enim ut metus tempor scelerisque at ac diam. Pellentesque varius felis urna, ut commodo urna hendrerit a. Sed eleifend convallis interdum. Aenean tincidunt eu lacus eu lacinia. In a dui ut risus pulvinar efficitur.</p>
+                </div>
+                <div class="feedback-wrapper"></div>
+              </div>
+          </div>
+            <!--END SOURCE-->
           </div>
 
 
@@ -107,14 +194,18 @@
             <a href="#"><div class="system-button"><span class="fas fa-cog"></span><br>Settings</div></a>
             <a href="#"><div class="system-button"><span class="fas fa-user-times"></span><br>Sign out</div></a>
             <div class="chat-feed">
-              <div class="chat-heading"><h4 class="text-light">Classroom Chat</h4></div>
+              <div class="chat-heading"><h4 class="text-light">Live Feed</h4></div>
               <div class="right-pane rounded-top">
                 <!-- Dummy input for chat feed -->
                 <p class="timestamp">14 May 2018, 16:03</p>
-                <p class="tutor"><strong>[Mr Miyagi:]</strong> Assignment 1 about tribalism is up! Please form your own answer then check your group's work!</p>
+                <p class="tutor"><strong>[Mr Miyagi:]</strong> Assignment 1 about surrealism is up! Please post your own answer then check your group's work!</p>
                 <p class="student"><strong>[Roger:]</strong> ok</p>
                 <p class="student"><strong>[Alice:]</strong> Mr Miyagi, can we use Wikipedia in our answer?</p>
                 <p class="tutor"><strong>[Mr Miyagi:]</strong> Alice, you can use it but for any source, don't just copy information. If you research something, make sure your reword the meaning in your own words.</p>
+                <p class="student"></p>
+                <p class="system-alert"><a href="#" onclick="changeMenu('Person2');openDocPane('Person2')">[Sam posted a response.]<br>[View]</a></p>
+                <p class="system-alert"><a href="#" onclick="changeMenu('Person5');openDocPane('Person5')">[Alice posted a response.]<br>[View]</a></p>
+                <p class="system-alert"><a href="#" onclick="changeMenu('Person2');openDocPane('Person2')">[Alice has posted feedback to Sam's solution.]<br>[View]</a></p>
               </div>
             </div>
             <div class="chat-box">
