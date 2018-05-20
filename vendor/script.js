@@ -2,6 +2,8 @@
         closePChat();
         endVid();
         closeDocPane();
+		var headSelector = "div.heads#" + name + " span";
+		var theirName = document.querySelector(headSelector).innerHTML;
         if (name === "Person0") {closePMenu(); return;}
 
         var allButtons = document.querySelectorAll(".menuButton");
@@ -15,13 +17,16 @@
             greyOut("vidButton");
             document.querySelector("#PersonMenu p").innerHTML = "";
         } else {
-            var headSelector = "div.heads#" + name + " span";
-            document.querySelector("#PersonMenu p").innerHTML = document.querySelector(headSelector).innerHTML + " is online.";
+            document.querySelector("#PersonMenu p").innerHTML = theirName + " is online."; // add message if online
         }
         /* grey-out the doc button if user has not submitted */
         if (!document.querySelector(imgSelector).classList.contains("submitted")) {
             greyOut("docButton");
         }
+		
+		/* change document pane to their name */
+		document.querySelector("#PersonMenu h5.post-message").innerHTML = theirName + "'s posts";
+		
         /* change the menu to the selected user */
         var menuElm = document.getElementById("PersonMenu");
         var menuString = menuElm.innerHTML;
