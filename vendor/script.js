@@ -26,7 +26,13 @@
 		
 		/* change document pane to their name */
 		document.querySelector("#PersonMenu h5.post-message").innerHTML = theirName + "'s posts";
-		
+        /* if Sam or Alice, add their posts to the doc pane */
+        if (name === "Person2") {
+            document.getElementById("docPaneContainer").innerHTML = '<button class="btn post-card" onclick="displaySam()">Post 1 - 14 May 2018, 16:02</button>';
+        } else if (name === "Person5") {
+            document.getElementById("docPaneContainer").innerHTML = '<button class="btn post-card" onclick="displayAlice()">Post 1 - 14 May 2018, 17:38</button>';
+        }
+        
         /* change the menu to the selected user */
         var menuElm = document.getElementById("PersonMenu");
         var menuString = menuElm.innerHTML;
@@ -95,7 +101,6 @@
         document.querySelector("div.problem-set-img-enlarged").style.display = "table-cell";
         document.querySelector("div.problem-tiled-container").style.display = "none";
         showDivs(num);
-        console.log(num);
     }
     function closeImgEnlarge() {
         document.querySelector("div.problem-set-img-enlarged").style.display = "none";
@@ -105,19 +110,48 @@
     function displayModal() {
         document.getElementById('myModal').style.display = "block";
     }
-    function closeEdit() {
+    function post() {
+        closePopup();
         document.getElementById('myModal').style.display = "none";
+        var date = new Date();
+        var months = ["January", "February", "March", "April", "May", "June", 
+                    "July", "August", "September", "October", "November", "December"];
+        var newDocLabel = "Post 1 - " + date.getDate() + " " + months[date.getMonth()] + " " + date.getFullYear() 
+                        + ", " + date.getHours() + ":" + date.getMinutes();
+        document.querySelector("button.draft-card").innerHTML = newDocLabel; 
+        document.querySelector("button.draft-card").onclick = displayConnie;
+        document.querySelector("button.draft-card").classList.remove("draft-card");
+        document.querySelector("button.main-edit").innerHTML = "Edit my latest post";
+        var newFeedCard = '<button class="btn post-card" onclick="displayConnie()">You posted a solution. Click to view.</button>';
+        document.querySelector("div.right-pane").innerHTML = document.querySelector("div.right-pane").innerHTML + newFeedCard;
     }
     function displayConnie() {
         document.getElementById('connie-modal').style.display = "block";
     }
-    function closeConnie() {
-        document.getElementById('connie-modal').style.display = "none";
-    }
     function displaySam() {
         document.getElementById('sam-modal').style.display = "block";
     }
-    function closeSam() {
-        document.getElementById('sam-modal').style.display = "none";
+    function displayAlice() {
+        document.getElementById('alice-modal').style.display = "block";
+    }
+    function displayImg(num) {
+        var modalSelector = 'img' + num + '-modal';
+        document.getElementById(modalSelector).style.display = "block";
+    }
+    function closeModal() {
+        var x = document.getElementsByClassName("modal");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+    }
+    function confirmPost() {
+        document.getElementById('confirm-post-modal').style.display = "block";
+    }
+    function confirmDiscard() {
+        document.getElementById('confirm-discard-modal').style.display = "block";
+    }
+    function closePopup() {
+        document.getElementById('confirm-post-modal').style.display = "none";
+        document.getElementById('confirm-discard-modal').style.display = "none";
     }
 

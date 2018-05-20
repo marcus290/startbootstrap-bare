@@ -8,7 +8,7 @@ html, body, div {
 div.invisible {
     transition: 0s !important;
 }
-div.home-button, div.left-pane, div.system-button, div.chat-feed, div.right-pane, div.chat-box {
+div.home-button, div.left-pane, div.system-button, div.chat-heading, div.chat-feed, div.right-pane, div.chat-box {
     animation: daybreak 3s;
 }
 @keyframes daybreak {
@@ -41,21 +41,21 @@ div.home-button, div.left-pane, div.system-button, div.chat-feed, div.right-pane
 }
 button.post-card {
 	margin: 5%;
-	padding: 10px;
-	height: 45px;
+	padding: 7px;
+	height: 40px;
 	box-shadow: 0 6px 10px 0 rgba(0,0,0,0.5);
 	background: linear-gradient(to bottom, #e1b137, #e1b137 50%, #e4ba4e 50%, #e4ba4e);
-	background-size: 100% 15px;
+	background-size: 100% 8px;
 	font-size: 14px;
 	font-weight: bold;
-	text-shadow: rgb(68, 68, 68) 0.5px 0.5px 0px;
-    color: #FFFF00;
+	color:white;
 	width: 90%;
-	text-align: left;
+    text-align: left;
+    white-space: normal;
 }
 button.post-card:hover {
     background: linear-gradient(to bottom, #dea821, #dea821 50%, #e1b137 50%, #e1b137);
-	background-size: 100% 15px;
+	background-size: 100% 8px;
 }
 button.post-card:active {
     box-shadow: none;
@@ -63,13 +63,14 @@ button.post-card:active {
 button.post-card.draft-card {
 	background: #e8c264;
 	background: linear-gradient(to bottom, #eed490, #eed490 50%, #ebcb7a 50%, #ebcb7a);
-	background-size: 100% 15px;
-	text-shadow: none;
+	background-size: 100% 8px;
+    text-shadow: none;
+    font-weight: 500;
 	color: black;
 }
 button.post-card.draft-card:hover {
 	background: linear-gradient(to bottom, #e8c264, #e8c264 50%, #e4ba4e 50%, #e4ba4e);
-	background-size: 100% 15px;
+	background-size: 100% 8px;
 }
 .action-area p {
     color: #e6e6e6;
@@ -116,7 +117,7 @@ div.action-pane img {
     width: auto;
     height: auto;
 	max-width: 90%;
-	max-height: 50%;
+	max-height: 60%;
 }
 .menuButtonContainer {
     position: relative;
@@ -130,8 +131,8 @@ div.action-pane img {
 .menuButton {
     border-radius: 50%;
     margin-left: 2.5%;
-    width: 80px;
-    height: 80px;
+    width: 72px;
+    height: 72px;
     position: absolute;
     top: 0;
     left: 0;
@@ -155,11 +156,11 @@ div.action-pane img {
     background: #008000;
 }
 #vidButton {
-    background: #e91640;
-    color: #ff571a;
+    background: #66cc00;
+    color: #009900;
 }
 #vidButton:hover {
-    background: #dc143c;
+    background: #59b300;
 }
 #docButton {
     top: -28%;
@@ -186,7 +187,8 @@ div.action-pane img {
 h5 {
     color: #e6e6e6;
     padding-top: 5%;
-    text-align: center;
+    padding-left: 15px;
+    text-align: left;
 }
 #privChat > div:first-child{
     height: 10%;
@@ -255,6 +257,10 @@ h5 {
     top: 28.5%;
     left: 33.33%;
 }
+#docPaneContainer {
+    height: auto;
+    background-color: transparent;
+}
 .heads-pane {
     padding-top: 2px;
 }
@@ -264,6 +270,7 @@ h5 {
     height: 25%;
     width: 50%;
     text-align: center;
+    padding-top: 4px;
     margin: 0;
     float: left;
     position: relative;
@@ -437,7 +444,7 @@ img.mySlides {
 button.main-edit {
     font-size: 2em !important;
     box-shadow: 0 6px 10px 0 rgba(0,0,0,0.5);
-    margin-top: 20px;
+    margin-top: 40px;
 }
 
 /* SOURCE https://www.w3schools.com/howto/howto_css_modals.asp */
@@ -516,7 +523,10 @@ div.edit-area textarea {
     border: 0.5px dotted black;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-	border-top: none;
+    border-top: none;
+    background-color: transparent;
+    background-image: url("../img/Connie'sDraft.png");
+    background-size: 100%;
 }
 div.edit-button-area {
     height: 15%;
@@ -535,6 +545,22 @@ button.modal-edit#post {
 }
 button.modal-edit#post:hover {
     background: #daa520;
+}
+div.modal-popup {
+    background-color: #fefefe !important;
+    margin: 25% auto 35% auto; /* centered */
+    border: 1px solid #888;
+    height: 30%;
+    width: 50%; /* Could be more or less, depending on screen size */
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.7);
+    border-radius: 0.3rem;
+    display: table;
+    text-align: center;
+}
+div.popup-wrapper {
+    display: table-cell;
+    vertical-align: center;
+    padding: 50px 30px;
 }
 
 div.post-wrapper {
@@ -565,6 +591,8 @@ div.feedback-wrapper {
     float: left !important;
     width: 20%;
     background-color: #19264d !important;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
 }
 
 
@@ -583,6 +611,9 @@ div.feedback-wrapper {
 }
 .system-button span {
     font-size: 2em;
+}
+div.left-system-button {
+    border-right: 0.5px dotted #e6e6e6;
 }
 .chat-feed {
     height: 78%;
@@ -614,15 +645,40 @@ div.right-pane p.tutor {
 div.right-pane p.student {
     font-style: italic;
 }
-div.right-pane p.system-alert {
-    font-weight: bold;
-    text-align: center;
-}
 div.right-pane p.timestamp {
     color: antiquewhite;
     text-align: center;
     font-weight: bold; 
 }
+div.right-pane button.post-card {
+    margin: 5px;
+    width: auto;
+    height: auto;
+    padding: 5px 7px 5px 7px;
+}
+
+/* SOURCE https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
+/*END SOURCE */
+
 .chat-box {
     float: left;
     height: 12%;
