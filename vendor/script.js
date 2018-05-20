@@ -49,9 +49,18 @@
     function startPChat(name) {
         var headSelector = "div.heads#" + name + " span";
         document.querySelector("#privChat h5").innerHTML = document.querySelector(headSelector).innerHTML;
+        /* if Mr Miyagi, Aditi or Alice add chat box filler */
+        if (name === "Person1" || name === "Person4" || name === "Person5") {
+            var htmlToInsert = '<div class="overlay"><p style="color: black;">Private chat here</p></div>';
+            document.getElementById("priv-chat-feed-inner").innerHTML = htmlToInsert;
+        } else {
+            document.getElementById("priv-chat-feed-inner").innerHTML = "";
+        }
         document.getElementById("privChat").classList.remove("invisible");
         var alertSelector = "div#" + name + " span.chatAlert";
-        document.querySelector(alertSelector).style.opacity = "0";
+        if (document.querySelector(alertSelector)) {
+            document.querySelector(alertSelector).style.opacity = "0";
+        }
     }
     function closePChat() {
         document.getElementById("privChat").classList.add("invisible");
@@ -76,8 +85,8 @@
     }
 
     /* SOURCE https://www.w3schools.com/w3css/w3css_slideshow.asp */
-    var slideIndex = 3;
-    
+    var slideIndex = 1;
+    showDivs(1);
     function plusDivs(n) {
         showDivs(slideIndex += n);
     }
@@ -91,21 +100,10 @@
             x[i].style.display = "none";
         }
         x[slideIndex-1].style.display = "block";
-        document.querySelector("p.img-title").innerHTML = x[slideIndex-1].title;
+        document.querySelector("p.edit-img-title").innerHTML = x[slideIndex-1].title;
         console.log("showDivs is applying index: " + n);
     }
     /* END SOURCE */
-
-    /* image handling in problem space */
-    function enlargeImage(num) {
-        document.querySelector("div.problem-set-img-enlarged").style.display = "table-cell";
-        document.querySelector("div.problem-tiled-container").style.display = "none";
-        showDivs(num);
-    }
-    function closeImgEnlarge() {
-        document.querySelector("div.problem-set-img-enlarged").style.display = "none";
-        document.querySelector("div.problem-tiled-container").style.display = "table-cell";
-    }
 
     function displayModal() {
         document.getElementById('myModal').style.display = "block";
@@ -121,17 +119,20 @@
         document.querySelector("button.draft-card").innerHTML = newDocLabel; 
         document.querySelector("button.draft-card").onclick = displayConnie;
         document.querySelector("button.draft-card").classList.remove("draft-card");
-        document.querySelector("button.main-edit").innerHTML = "Edit my latest post";
+        document.querySelector("button.main-edit").innerHTML = "Edit latest post";
         var newFeedCard = '<button class="btn post-card" onclick="displayConnie()">You posted a solution. Click to view.</button>';
         document.querySelector("div.right-pane").innerHTML = document.querySelector("div.right-pane").innerHTML + newFeedCard;
     }
     function displayConnie() {
+        closeModal();
         document.getElementById('connie-modal').style.display = "block";
     }
     function displaySam() {
+        closeModal();
         document.getElementById('sam-modal').style.display = "block";
     }
     function displayAlice() {
+        closeModal();
         document.getElementById('alice-modal').style.display = "block";
     }
     function displayImg(num) {

@@ -99,14 +99,14 @@
             <h1 class="mt-5">Assignment 1 - Surrealism</h1>
             <div id="problem-set-img-area">
               <div class="problem-tiled-container">
-                <div class="problem-set-img-tiled" id="Dali0"><a href="#" onclick="enlargeImage(1)"><img src="img/a1/Dali0.jpg"></a><p class="img-title">The Persistence of Memory, 1931<br>by Salvador Dali</p></div>
-                <div class="problem-set-img-tiled" id="Dali1"><a href="#" onclick="enlargeImage(2)"><img src="img/a1/Dali1.jpg"></a><p class="img-title">Le Sommeil (Sleep), 1937<br>by Salvador Dali</p></div>
-                <div class="problem-set-img-tiled" id="Dali2"><a href="#" onclick="enlargeImage(3)"><img src="img/a1/Dali2.jpg"></a><p class="img-title">Lobster Telephone, 1938<br>by Salvador Dali</p></div>
+                <div class="problem-set-img-tiled" id="Dali0"><img src="img/a1/Dali0.jpg"><p class="img-title">The Persistence of Memory, 1931<br>by Salvador Dali</p></div>
+                <div class="problem-set-img-tiled" id="Dali1"><img src="img/a1/Dali1.jpg"><p class="img-title">Le Sommeil (Sleep), 1937<br>by Salvador Dali</p></div>
+                <div class="problem-set-img-tiled" id="Dali2"><img src="img/a1/Dali2.jpg"><p class="img-title">Lobster Telephone, 1938<br>by Salvador Dali</p></div>
               </div>
             </div>
             <p class="problem">Salvador Dali once said, <strong>“Surrealism is destructive, but it destroys only what it considers to be shackles limiting our vision.”</strong> What do you think Dali meant by surrealism being “destructive”? Refer to the art works here and discuss how they are destructive. You can also refer to other surrealist art works by Dali, other artists, or other art works of different genres.</p>
             <p>(Word limit: 500 words)</p>
-            <button class="btn btn-secondary main-edit" type="button" onclick="displayModal()">Edit my latest draft</button>
+            <button class="btn btn-secondary main-edit" type="button" onclick="displayModal()">Edit latest draft</button>
             <!-- SOURCE: https://www.w3schools.com/howto/howto_css_modals.asp -->
             <!-- The Modal -->
             <div id="myModal" class="modal">
@@ -117,12 +117,12 @@
                     <div class="img-pane-container">
                         <div class="cyclebutton leftbutton"><a href="#" onclick="plusDivs(-1)"><span class="fas fa-caret-left"></span></a></div>
                         <div class="img-container"><div class="img-wrapper">
-                          <img src="img/a1/Dali0.jpg" class="mySlides" title="The Persistence of Memory, 1931 by Salvador Dali">
-                          <img src="img/a1/Dali1.jpg" class="mySlides" title="Le Sommeil (Sleep), 1937 by Salvador Dali">
-                          <img src="img/a1/Dali2.jpg" class="mySlides" title="Lobster Telephone, 1938 by Salvador Dali">
+                          <img src="img/a1/Dali0.jpg" class="mySlides" title="The Persistence of Memory, 1931">
+                          <img src="img/a1/Dali1.jpg" class="mySlides" title="Le Sommeil (Sleep), 1937">
+                          <img src="img/a1/Dali2.jpg" class="mySlides" title="Lobster Telephone, 1938">
                         </div></div>
                         <div class="cyclebutton rightbutton"><a href="#" onclick="plusDivs(1)"><span class="fas fa-caret-right"></span></a></div>
-                        <p class="img-title">The Persistence of Memory, 1931 by Salvador Dali</p>
+                        <p class="edit-img-title">The Persistence of Memory, 1931 by Salvador Dali</p>
                     </div>
                     <p><strong>Assignment 1 - </strong>Salvador Dali once said, <strong>“Surrealism is destructive, but it destroys only what it considers to be shackles limiting our vision.”</strong> What do you think Dali meant by surrealism being “destructive”? Refer to the art works here and discuss how they are destructive. You can also refer to other surrealist art works by Dali, other artists, or other art works of different genres. (Word limit: 400 words)</p>
                   </div>
@@ -174,7 +174,7 @@
                     <div class="floated"><img src="img/a1/Dali1.jpg"></div>
                     <p>Praesent porttitor eu est vitae lacinia. Donec posuere, urna ut convallis pretium, dolor arcu imperdiet augue, at eleifend sapien lectus ut ex. Suspendisse diam ipsum, dictum in ultricies vitae, molestie quis augue. Ut et enim ut metus tempor scelerisque at ac diam. Pellentesque varius felis urna, ut commodo urna hendrerit a. Sed eleifend convallis interdum. Aenean tincidunt eu lacus eu lacinia. In a dui ut risus pulvinar efficitur.</p>
                   </div>
-                  <div class="feedback-wrapper"></div>
+                  <div class="feedback-bar"></div>
                   </div>
                 </div>
             </div>
@@ -192,7 +192,23 @@
                   <div class="floated-left"><img src="img/a1/Dali1.jpg"></div>
                   <p>Praesent porttitor eu est vitae lacinia. Donec posuere, urna ut convallis pretium, dolor arcu imperdiet augue, at eleifend sapien lectus ut ex. Suspendisse diam ipsum, dictum in ultricies vitae, molestie quis augue. Ut et enim ut metus tempor scelerisque at ac diam. Pellentesque varius felis urna, ut commodo urna hendrerit a.</p>
                 </div>
-                <div class="feedback-wrapper"></div>
+                <div class="feedback-bar"></div>
+                <div class="flag-wrapper flag1">
+                  <div class="flag-box-container">
+                    <div class="flag-box-buffer-right"></div>
+                    <div class="flag-box"><strong>[Alice:] </strong>How does this relate to art history?</div>
+                    <div class="flag-box-buffer-left"></div>
+                  </div>
+                  <div class="flag-line flag-line1"></div>
+                </div>
+                <div class="flag-wrapper flag2">
+                    <div class="flag-box-container">
+                      <div class="flag-box-buffer-right"></div>
+                      <div class="flag-box"><strong>[Alice:] </strong>You didn't discuss the Lobster Telephone...</div>
+                      <div class="flag-box-buffer-left"></div>
+                    </div>
+                    <div class="flag-line flag-line2"></div>
+                  </div>
                 </div>
               </div>
           </div>
@@ -212,7 +228,7 @@
                 <div class="floated-left"><img src="img/a1/Dali2.jpg"></div>
                 <p>Duis sed urna sed erat semper tristique. Mauris ornare cursus tristique. Vestibulum eu condimentum metus. Nam aliquet in urna eu congue. Aliquam et posuere mi. In tortor nisl, molestie ac quam sit amet, eleifend semper quam. Maecenas neque est, dignissim ac ex nec, feugiat fermentum purus. Ut pulvinar interdum sem, a aliquam erat posuere et. Quisque id suscipit purus. Donec ligula eros, sodales vel condimentum vitae, faucibus vitae nibh. Curabitur eu erat sem.</p>
               </div>
-              <div class="feedback-wrapper"></div>
+              <div class="feedback-bar"></div>
               </div>
             </div>
           </div>
@@ -246,9 +262,9 @@
                 <!-- Dummy input for chat feed -->
                 <p class="timestamp">14 May 2018, 16:03</p>
                 <p class="tutor"><strong>[Mr Miyagi:]</strong> Assignment 1 about surrealism is up! Please post your own answer then check your group's work!</p>
-                <p class="student"><strong>[Roger:]</strong> ok</p>
+                <p class="roger"><strong>[Roger:]</strong> ok</p>
                 <button class="btn post-card" onclick="changeMenu('Person2');openDocPane('Person2');displaySam()">Sam posted a solution. Click to view.</button>
-                <p class="student"><strong>[Alice:]</strong> Mr Miyagi, can we use Wikipedia in our answer?</p>
+                <p class="alice"><strong>[Alice:]</strong> Mr Miyagi, can we use Wikipedia in our answer?</p>
                 <p class="tutor"><strong>[Mr Miyagi:]</strong> Alice, you can use it but for any source, don't just copy information. Make sure you reword the meaning in your own words.</p>
                 <button class="btn post-card" onclick="changeMenu('Person5');openDocPane('Person5');displayAlice()">Alice posted a solution. Click to view.</button>
                 <button class="btn post-card" onclick="changeMenu('Person2');openDocPane('Person2');displaySam()">Sam received feedback from Alice. Click to view.</button>

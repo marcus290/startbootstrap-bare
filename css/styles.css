@@ -65,6 +65,7 @@ button.post-card.draft-card {
 	background: linear-gradient(to bottom, #eed490, #eed490 50%, #ebcb7a 50%, #ebcb7a);
 	background-size: 100% 8px;
     text-shadow: none;
+    font-style: italic;
     font-weight: 500;
 	color: black;
 }
@@ -189,6 +190,7 @@ h5 {
     padding-top: 5%;
     padding-left: 15px;
     text-align: left;
+    font-family: "Arial Black", Gadget, sans-serif;    
 }
 #privChat > div:first-child{
     height: 10%;
@@ -222,6 +224,18 @@ h5 {
     border-top-right-radius: 0%;
     font-size: 0.8em;
 }
+#priv-chat-box button {
+    border: 0.5px dotted #e6e6e6;
+}
+#priv-chat-feed-inner .overlay {
+    font-weight: bold;
+    font-size: 1.5em;
+    font-style: italic;
+    background: rgba(255,255,255,0.5);
+    height: auto;
+    position: relative;
+    top: 20%;
+} 
 #vidChat {
     border: none;
     overflow: hidden;
@@ -368,7 +382,7 @@ div.heads img:active, .tooltiptext:active + img, div.heads img.online:active, .t
 div.text-center div {
     background: transparent;
 }
-h1 { margin-bottom: 40px;}
+h1 { margin-bottom: 40px; font-family: "Arial Black", Gadget, sans-serif;}
 div#problem-set-img-area {
     display: table;
     text-align: center;
@@ -390,8 +404,9 @@ div.problem-set-img-tiled img {
     width: 95%;
     height: auto;
 }
-p.problem, p.img-title {
+p.problem, p.img-title, p.edit-img-title {
     clear: left;
+    margin: auto, auto;
 }
 div.problem-set-img-enlarged {
     width: 100%;
@@ -433,13 +448,13 @@ img.mySlides {
     padding: 10px;
 }
 .cyclebutton a {
-    color: #334d99 !important;
+    color: #e6e6e6;
     display: table-cell; 
     vertical-align: middle; 
     text-align: center;
 }
 .cyclebutton a:hover {
-    color: #4e5965 !important;
+    color: #cccccc;
 }
 button.main-edit {
     font-size: 2em !important;
@@ -497,18 +512,19 @@ div.condensed-problem p {
     text-align: left;
     font-size: 0.8em;
 }
+div.condensed-problem p.edit-img-title { text-align: center;}
 div.condensed-problem div.img-pane-container {
     float: right;
-    width: 38%;
+    width: 30%;
+    text-align: center;
+    margin-left: 30px;
 }
 div.condensed-problem div {padding: 0;}
 div.condensed-problem div.cyclebutton {
-    color: white;
     font-size: 2em;
     padding: 2px;
 }
 div.condensed-problem div.img-pane-container img {
-    display: none; 
     height: 100px;
     margin: auto auto;
 }
@@ -562,7 +578,9 @@ div.popup-wrapper {
     vertical-align: center;
     padding: 50px 30px;
 }
-
+div.popup-wrapper h4 {
+    margin-bottom: 30px;
+}
 div.post-wrapper {
     padding: 20px;
     overflow-y: auto;
@@ -587,12 +605,58 @@ div.post-wrapper div.floated {
 div.post-wrapper div.floated-left {
     float: left;
 }
-div.feedback-wrapper {
+div.feedback-bar {
     float: left !important;
     width: 20%;
     background-color: #19264d !important;
     border-top-right-radius: 0.3rem;
     border-bottom-right-radius: 0.3rem;
+}
+div.flag-wrapper {
+    position: absolute;
+    height: 80px;
+    width: 100%;
+    right: 0;
+}
+div.flag1 {top: 41%;}
+div.flag2 {bottom: 7%;}
+div.flag-line {
+    border-top: 2px solid #6680cc;
+    height: 100%;
+    float: right;
+}
+div.flag-line1 {width: 40%;}
+div.flag-line2 {width: 20%;}
+div.flag-box-container {
+    float: right;
+    width: 20%;
+}
+div.flag-box-buffer-left {
+    width: 5%;
+    float: right;
+    border-top: 2px solid #6680cc;
+}
+div.flag-box {
+    border: 2px solid #6680cc;
+    border-top-right-radius: 0.3rem; 
+    border-bottom-left-radius:  0.3rem;
+    border-bottom-right-radius:  0.3rem;
+    background-color: #6680cc !important;
+    box-shadow: 0 6px 10px 0 rgba(0,0,0,0.5);
+    width: 90%;
+    font-style: italic;
+    color: antiquewhite;
+    float: right;
+    text-align: left;
+    font-size: 0.8em;
+    padding: 5px;
+}
+div.flag-box:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+}
+div.flag-box-buffer-right {
+    width: 5%;
+    float: right;    
 }
 
 
@@ -623,6 +687,7 @@ div.left-system-button {
 }
 .chat-heading{
     height: 5%;
+    font-family: "Arial Black", Gadget, sans-serif;
 }
 .right-pane {
     border: 0.5px dotted #e6e6e6;
@@ -639,11 +704,16 @@ div.right-pane p {
     color: antiquewhite;
 }
 div.right-pane p.tutor {
-    color: lightblue;
+    color: #cdf1fe;
     font-style: italic;
 }
-div.right-pane p.student {
+div.right-pane p.roger {
     font-style: italic;
+    color: #ccffcc;
+}
+div.right-pane p.alice {
+    font-style: italic;
+    color: antiquewhite;
 }
 div.right-pane p.timestamp {
     color: antiquewhite;
@@ -665,7 +735,7 @@ div.right-pane button.post-card {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+    background: rgb(254, 254, 254); 
 }
 
 /* Handle */
@@ -675,7 +745,7 @@ div.right-pane button.post-card {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+    background: rgb(105, 105, 105); 
 }
 /*END SOURCE */
 
@@ -697,5 +767,8 @@ button.btn.btn-secondary {
     font-size: 0.8em;
     border-width: 0;
     background-color: #6680cc;
+}
+button.btn.btn-secondary:hover {
+    background-color: #5370c6;
 }
 
