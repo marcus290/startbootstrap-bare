@@ -106,6 +106,7 @@
     /* END SOURCE */
 
     function displayModal() {
+        closeModal();
         document.getElementById('myModal').style.display = "block";
     }
     function post() {
